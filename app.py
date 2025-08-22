@@ -83,13 +83,13 @@ with st.form("predict_form"):
 
         # Validations
         if exp >= age or exp > (age - 20) or age < (exp + 18):
-            st.error("Invalid combination of age and experience!")
+            st.error("⚠️ Invalid combination of age and experience!")
             st.stop()
         if education == "Master's" and age < 23:
-            st.error("Age & Qualification doesn't match! Please adjust.")
+            st.error("⚠️ Age & Qualification doesn't match! Please adjust.")
             st.stop()
         if education == "PhD" and age < 26:
-            st.error("Age & Qualification doesn't match! Please adjust.")
+            st.error("⚠️ Age & Qualification doesn't match! Please adjust.")
             st.stop()
 
         # Prediction
