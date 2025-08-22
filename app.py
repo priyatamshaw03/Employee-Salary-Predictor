@@ -13,7 +13,7 @@ original_data.dropna(inplace=True)
 
 # --- Streamlit UI ---
 
-st.set_page_config(page_title="Salary Predictor", page_icon="💸", layout="centered")
+st.set_page_config(page_title="Employee Salary Predictor", page_icon="💸", layout="centered")
 st.markdown("<h1 style='text-align: center; color: #FF4B4B;'>Employee Salary Predictor</h1>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: center; color: gray;'>Predict your salary with AI quickly and accurately.</p><hr>", unsafe_allow_html=True)
 
@@ -35,10 +35,9 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 with st.sidebar:
-    st.image("https://www.pngrepo.com/png/192247/512/man-user.png", width=200)
+    st.image("man-user.png", width=200)
     st.title("Employee Salary Predictor")
-    st.markdown(""" To predict your salary
-    Our AI analyzes key factors like :
+    st.markdown(""" Key factors responsible for prediction  :
     - Age
     - Gender
     - Qualification
@@ -55,13 +54,13 @@ with st.form("predict_form"):
     col1, col2 = st.columns(2)
 
     with col1:
-        age = st.number_input("🎂 Age", 18, 65, 30)
+        age = st.number_input("🎂 Age", 18, 65, 25)
         gender = st.radio("👤 Gender", ["Male", "Female"])
         education = st.selectbox("🎓 Qualification", original_data['Education Level'].unique())
 
     with col2:
         job = st.selectbox("💼 Job Role", original_data['Job Title'].unique())
-        exp = st.number_input("⏳ Years of Experience", 0, 40, 5)
+        exp = st.number_input("⏳ Years of Experience", 0, 40, 0)
 
     submitted = st.form_submit_button("✨ Predict Salary")
 
